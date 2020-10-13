@@ -4,5 +4,8 @@
 # Python virtual environment
 env/
 
+# Python cache
+__pycache__/
+
 # folder with audio files
 myFiles/
