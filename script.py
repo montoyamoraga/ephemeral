@@ -6,8 +6,7 @@ import time
 # define folder to work with
 myFolder = "myFolder/"
 
-# time interval to check files
-# measured in seconds
+# time interval to check files, measured in seconds
 timeInterval = 10
 timeIntervalDate = datetime.timedelta(seconds=timeInterval)
 
@@ -22,10 +21,12 @@ def readTimeFolder(directoryFile):
     modificationTime = readTimeFile(fullPath)
     modificationTime = datetime.datetime.fromtimestamp(modificationTime)
     modificationTimes.append(modificationTime)
+  
   # return array
   return modificationTimes
 
 def checkIfFilesExpire(modificationTimes, timeNow):
+
   for index in range(len(modificationTimes)):
     difference = timeNow - modificationTimes[index]
 
