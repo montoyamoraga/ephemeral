@@ -13,17 +13,9 @@ print(timeNow)
 # time delta to check files
 deltaTime = 4
 
-
-
-print("hello world")
-
-
-
-
 def readModificationTime(fullPath):
   modifcationTime = os.path.getmtime(fullPath)
   return modifcationTime
-
 
 for filename in os.listdir(myDirectory):
   fullPath = os.path.join(myDirectory, filename)
