@@ -19,14 +19,17 @@ def readTimeFile(pathFile):
 
 def readTimeFolder(directoryFile):
   for fileName in os.listdir(directoryFile):
-  fullPath = os.path.join(directoryFile, fileName)
-  modificationTime = readTimeFile(fullPath)
-  print(time.ctime(modificationTime))
-  modificationTime = datetime.datetime.fromtimestamp(modificationTime).strftime('%Y-%m-%d %H:%M:%S')
-  # print(modificationTime)
+    fullPath = os.path.join(directoryFile, fileName)
+    modificationTime = readTimeFile(fullPath)
+    # print(time.ctime(modificationTime))
+    modificationTime = datetime.datetime.fromtimestamp(modificationTime).strftime('%Y-%m-%d %H:%M:%S')
+    return modificationTime
 
 while True:
-  timeNow = datetime.datetime.now()
+  timeNow = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+  print("timeNow:")
   print(timeNow)
-  readTimeFolder(myFolder)
+  timeFile = readTimeFolder(myFolder)
+  print("timeFile: ")
+  print(timeFile)
   time.sleep(timeDelta)
