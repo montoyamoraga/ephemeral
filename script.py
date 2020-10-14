@@ -1,25 +1,32 @@
-# import os
+# import Python modules
 import os
 import datetime
 import time
 
 # define directory to work with
-myDirectory = "myFiles/"
+myFolder = "myFolder/"
 
 # initialize current time
 timeNow = datetime.datetime.now()
-print(timeNow)
 
 # time delta to check files
-deltaTime = 4
+# measured in seconds
+timeDelta = 60
 
-def readModificationTime(fullPath):
-  modifcationTime = os.path.getmtime(fullPath)
-  return modifcationTime
+def readTimeFile(pathFile):
+  modificationTime = os.path.getmtime(pathFile)
+  return modificationTime
 
-for filename in os.listdir(myDirectory):
-  fullPath = os.path.join(myDirectory, filename)
-  modificationTime = readModificationTime(fullPath)
+def readTimeFolder(directoryFile):
+  for fileName in os.listdir(directoryFile):
+  fullPath = os.path.join(directoryFile, fileName)
+  modificationTime = readTimeFile(fullPath)
   print(time.ctime(modificationTime))
   modificationTime = datetime.datetime.fromtimestamp(modificationTime).strftime('%Y-%m-%d %H:%M:%S')
-  print(modificationTime)
+  # print(modificationTime)
+
+while True:
+  timeNow = datetime.datetime.now()
+  print(timeNow)
+  readTimeFolder(myFolder)
+  time.sleep(timeDelta)
