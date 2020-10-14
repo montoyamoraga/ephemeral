@@ -43,15 +43,8 @@ while True:
   # get array of times of modification of files
   fileTimes = readTimeFolder(myFolder)
 
+  # go through every file and decide
   checkIfFilesExpire(fileTimes, timeNow)
 
-  # print("timeFile: ")
-  # print(timeFile)
-  # print("difference:")
-  # difference = timeNow - timeFile
-  # print(difference)
-  # if (difference > timeIntervalDate):
-  #   print("the file is deleted")
-  # else:
-  #   print("the file is played")
+  # wait before next iteration
   time.sleep(timeInterval)
